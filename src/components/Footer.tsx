@@ -1,12 +1,12 @@
 import React from 'react';
-import { Github, Linkedin, Twitter, Heart } from 'lucide-react';
+import { Github, Linkedin, Twitter, Instagram, Facebook, Heart } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
-    <footer className="bg-gray-100 dark:bg-gray-800 py-12">
-      <div className="container mx-auto px-4 md:px-6">
+    <footer className="relative bg-transparent py-12 overflow-hidden">
+      <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div>
             <a 
@@ -19,49 +19,51 @@ const Footer: React.FC = () => {
             >
               Soojal.dev
             </a>
-            <p className="text-gray-600 dark:text-gray-400 mt-2">
-              Full-Stack Developer & UI/UX Designer
-            </p>
+            <div className="text-gray-600 dark:text-gray-400 mt-2 animate-fade-in-up">
+              <p className="font-semibold text-teal-500 animate-bounce">BCA Graduate</p>
+              <div className="mt-1">
+                <span className="typing-animation">Full-Stack Developer | UI/UX Designer</span>
+              </div>
+              <div className="mt-1">
+                <span className="typing-animation">Game Development Enthusiast</span>
+              </div>
+              <div className="mt-1">
+                <span className="typing-animation">Proficient in React, TypeScript, TailwindCSS</span>
+              </div>
+              <div className="mt-1">
+                <span className="typing-animation">Passionate about Creative Problem Solving</span>
+              </div>
+            </div>
           </div>
-          
+
           <div className="flex space-x-6 mt-6 md:mt-0">
-            <a 
-              href="#" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors duration-300"
-              aria-label="GitHub"
-            >
-              <Github size={20} />
-            </a>
-            <a 
-              href="#" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors duration-300"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a 
-              href="#" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors duration-300"
-              aria-label="Twitter"
-            >
-              <Twitter size={20} />
-            </a>
+            {[
+              { icon: <Github size={20} />, url: "https://github.com/soojal-bhardwaj-27", label: "GitHub" },
+              { icon: <Linkedin size={20} />, url: "https://www.linkedin.com/in/soojal-bhardwaj-086678322/", label: "LinkedIn" },
+              { icon: <Twitter size={20} />, url: "https://twitter.com/soojal_bhardwaj", label: "Twitter" },
+              { icon: <Instagram size={20} />, url: "https://instagram.com/soojal_bhardwaj", label: "Instagram" },
+              { icon: <Facebook size={20} />, url: "https://facebook.com/soojal.bhardwaj", label: "Facebook" }
+            ].map(({ icon, url, label }, index) => (
+              <a
+                key={index}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors duration-300"
+                aria-label={label}
+              >
+                {icon}
+              </a>
+            ))}
           </div>
         </div>
-        
-        <div className="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-600 dark:text-gray-400 flex items-center justify-center">
-            <span>© {currentYear} Soojal Bhardwaj. All rights reserved.</span>
-            <Heart size={16} className="text-red-500 mx-1" />
+
+        <div className="mt-8 text-center text-gray-600 dark:text-gray-400">
+          <p className="flex items-center justify-center">
+            Made with <Heart className="mx-1 text-red-500" size={16} /> by Soojal Bhardwaj
           </p>
-          <p className="text-gray-500 dark:text-gray-500 text-sm mt-2">
-            Designed and built with passion
+          <p className="mt-2">
+            © {currentYear} All rights reserved
           </p>
         </div>
       </div>

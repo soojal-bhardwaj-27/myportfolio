@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -15,12 +15,10 @@ function App() {
     const handleScroll = () => {
       const sections = ['home', 'about', 'skills', 'projects', 'contact'];
       
-      // Find which section is currently in view
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // If the section is in view
           if (rect.top <= 150 && rect.bottom >= 150) {
             setActiveSection(section);
             break;
@@ -36,25 +34,29 @@ function App() {
   return (
     <ThemeProvider>
       <div className="relative font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen transition-colors duration-300">
+        {/* Test Element */}
+
         <Navbar activeSection={activeSection} />
-        <main>
-          <section id="home">
+        <main className="relative z-10">
+          <section id="home" className="min-h-screen bg-opacity-50 bg-gray-100 dark:bg-opacity-50 dark:bg-gray-800">
             <Hero />
           </section>
-          <section id="about">
+          <section id="about" className="min-h-screen bg-white dark:bg-gray-900">
             <About />
           </section>
-          <section id="skills">
+          <section id="skills" className="min-h-screen bg-opacity-50 bg-gray-100 dark:bg-opacity-50 dark:bg-gray-800">
             <Skills />
           </section>
-          <section id="projects">
+          <section id="projects" className="min-h-screen bg-white dark:bg-gray-900">
             <Projects />
           </section>
-          <section id="contact">
+          <section id="contact" className="min-h-screen bg-opacity-50 bg-gray-100 dark:bg-opacity-50 dark:bg-gray-800">
             <Contact />
           </section>
         </main>
-        <Footer />
+        <div className="relative">
+          <Footer />
+        </div>
       </div>
     </ThemeProvider>
   );

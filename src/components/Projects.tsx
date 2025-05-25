@@ -29,7 +29,6 @@ const Projects: React.FC = () => {
       category: "game",
       links: {
         demo: "#",
-        github: "#"
       }
     },
     {
@@ -40,8 +39,8 @@ const Projects: React.FC = () => {
       tags: ["React", "AI Integration", "Responsive Design"],
       category: "webapp",
       links: {
-        demo: "#",
-        github: "#"
+        demo: "https://rio-world-rust.vercel.app/",
+        github: "https://github.com/soojal-bhardwaj-27/rio_world"
       }
     },
     {
