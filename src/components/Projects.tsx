@@ -22,69 +22,194 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "Multiplayer Web Game",
-      description: "A real-time multiplayer game built with React, Node.js, and Socket.io that allows users to compete against each other in various challenges.",
-      image: "https://images.pexels.com/photos/7915575/pexels-photo-7915575.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["React", "Node.js", "Socket.io", "Game Development"],
-      category: "game",
+      title: "Help In Offline",
+      description: "A platform to help users find offline services.",
+      image: "https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["React", "Web Development", "Service Platform"],
+      category: "webapp",
       links: {
-        demo: "#",
+        demo: "https://helpinoffline.vercel.app/",
+        github: "#"
       }
     },
     {
       id: 2,
-      title: "AI Resume Builder",
-      description: "Smart tool that uses AI to help users create professional resumes with content suggestions and formatting options.",
-      image: "https://images.pexels.com/photos/6893333/pexels-photo-6893333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["React", "AI Integration", "Responsive Design"],
+      title: "Neeharika Mam",
+      description: "A personal portfolio or professional website.",
+      image: "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["React", "Portfolio", "Personal Website"],
       category: "webapp",
       links: {
-        demo: "https://rio-world-rust.vercel.app/",
-        github: "https://github.com/soojal-bhardwaj-27/rio_world"
+        demo: "https://neeharikamam.vercel.app/",
+        github: "#"
       }
     },
     {
       id: 3,
-      title: "E-Learning Platform",
-      description: "A comprehensive learning platform with interactive lessons, quizzes, and progress tracking for students.",
-      image: "https://images.pexels.com/photos/5428003/pexels-photo-5428003.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["React", "Node.js", "MongoDB", "Educational Tech"],
-      category: "webapp",
+      title: "Rio World Rust",
+      description: "A project related to the Rio World, possibly a game or simulation.",
+      image: "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["Rust", "Game Development", "Simulation"],
+      category: "game",
       links: {
-        demo: "#"
+        demo: "https://rio-world-rust.vercel.app/",
+        github: "#"
       }
     },
     {
       id: 4,
-      title: "Brand Identity Design",
-      description: "Complete brand identity design including logo, color palette, typography, and usage guidelines for a tech startup.",
-      image: "https://images.pexels.com/photos/6444/pencil-typography-black-design.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["Branding", "Logo Design", "Illustrator"],
-      category: "design",
+      title: "Bike Mechanic",
+      description: "An application for bike mechanics or enthusiasts.",
+      image: "https://images.pexels.com/photos/380782/pexels-photo-380782.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["Web Development", "Mechanic", "Automotive"],
+      category: "webapp",
       links: {
-        demo: "#"
+        demo: "https://bike-mechanic.vercel.app/",
+        github: "#"
       }
     },
     {
       id: 5,
-      title: "Handwriting Detection System",
-      description: "A machine learning system that detects and analyzes handwriting forgery using TensorFlow and OpenCV.",
-      image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["TensorFlow", "OpenCV", "Machine Learning"],
-      category: "ai",
+      title: "Raf Dusky",
+      description: "A creative or artistic project with a unique name.",
+      image: "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["Creative", "Design", "Art"],
+      category: "design",
       links: {
+        demo: "https://raf-dusky.vercel.app/",
         github: "#"
       }
     },
     {
       id: 6,
-      title: "E-Commerce UI Design",
-      description: "Modern and intuitive UI design for an e-commerce platform with focus on user experience and conversion optimization.",
-      image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["UI/UX", "Figma", "E-Commerce"],
-      category: "design",
+      title: "Hackethics138",
+      description: "A project related to hacking ethics or cybersecurity.",
+      image: "https://images.pexels.com/photos/5380650/pexels-photo-5380650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["Cybersecurity", "Ethics", "Hacking"],
+      category: "ai",
       links: {
-        demo: "#"
+        demo: "https://hackethics138.vercel.app/",
+        github: "#"
+      }
+    },
+    {
+      id: 7,
+      title: "Arun Eosin",
+      description: "A project with a unique and intriguing name.",
+      image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["Web Development", "Creative", "Unique"],
+      category: "webapp",
+      links: {
+        demo: "https://arun-eosin.vercel.app/",
+        github: "#"
+      }
+    },
+    {
+      id: 8,
+      title: "Hospi Omega",
+      description: "A hospital management or healthcare related application.",
+      image: "https://images.pexels.com/photos/3985163/pexels-photo-3985163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["Healthcare", "Management", "Web Application"],
+      category: "webapp",
+      links: {
+        demo: "https://hospi-omega.vercel.app/",
+        github: "#"
+      }
+    },
+    {
+      id: 9,
+      title: "Harsh Edu",
+      description: "An educational platform or e-learning solution.",
+      image: "https://images.pexels.com/photos/4145353/pexels-photo-4145353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["Education", "E-learning", "Platform"],
+      category: "webapp",
+      links: {
+        demo: "https://harsh-edu.vercel.app/",
+        github: "#"
+      }
+    },
+    {
+      id: 10,
+      title: "Hotel Booking",
+      description: "A hotel booking system or travel application.",
+      image: "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["Travel", "Booking", "Web Application"],
+      category: "webapp",
+      links: {
+        demo: "https://hotelbooking-mu-nine.vercel.app/",
+        github: "#"
+      }
+    },
+    {
+      id: 11,
+      title: "Rio Deepfake",
+      description: "A project exploring deepfake technology, possibly related to video or image manipulation.",
+      image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["AI", "Deepfake", "Machine Learning"],
+      category: "ai",
+      links: {
+        demo: "https://riodeepfake.vercel.app/",
+        github: "#"
+      }
+    },
+    {
+      id: 12,
+      title: "Duofit",
+      description: "A fitness or health-related application.",
+      image: "https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["Fitness", "Health", "Mobile App"],
+      category: "webapp",
+      links: {
+        demo: "https://duofit.vercel.app/",
+        github: "#"
+      }
+    },
+    {
+      id: 13,
+      title: "Jaspreethira",
+      description: "A personal or creative project with a unique name.",
+      image: "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["Personal", "Creative", "Web Development"],
+      category: "webapp",
+      links: {
+        demo: "https://jaspreethira.vercel.app/",
+        github: "#"
+      }
+    },
+    {
+      id: 14,
+      title: "Iwatch Opal",
+      description: "A project related to smartwatches or wearable technology.",
+      image: "https://images.pexels.com/photos/437038/pexels-photo-437038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["Wearable Tech", "Smartwatch", "IoT"],
+      category: "webapp",
+      links: {
+        demo: "https://iwatch-opal.vercel.app/",
+        github: "#"
+      }
+    },
+    {
+      id: 15,
+      title: "Gamics Theta",
+      description: "A project combining gaming and comics.",
+      image: "https://images.pexels.com/photos/163036/mario-bros-super-mario-nitendo-game-163036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["Gaming", "Comics", "Entertainment"],
+      category: "game",
+      links: {
+        demo: "https://gamics-theta.vercel.app/",
+        github: "#"
+      }
+    },
+    {
+      id: 16,
+      title: "Gaming Zone Henna",
+      description: "A platform or community for gamers.",
+      image: "https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["Gaming", "Community", "Platform"],
+      category: "game",
+      links: {
+        demo: "https://gaming-zone-henna.vercel.app/",
+        github: "#"
       }
     }
   ];
