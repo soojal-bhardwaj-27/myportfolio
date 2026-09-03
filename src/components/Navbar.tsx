@@ -45,7 +45,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg py-3' 
+          ? 'glass shadow-lg py-3' 
           : 'bg-transparent py-5'
       }`}
     >

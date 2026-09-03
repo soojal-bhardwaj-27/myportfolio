@@ -6,6 +6,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Chatbot from './components/Chatbot';
 import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
@@ -33,30 +34,37 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="relative font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen transition-colors duration-300">
-        {/* Test Element */}
+      <div className="relative font-sans text-gray-900 dark:text-gray-100 min-h-screen transition-colors duration-300 selection:bg-teal-500 selection:text-white">
+        
+        {/* Modern Background Effects */}
+        <div className="fixed inset-0 z-[-1] bg-gray-50 dark:bg-gray-950 transition-colors duration-500">
+          <div className="absolute top-0 -left-4 w-72 h-72 bg-teal-300 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob dark:opacity-10 dark:bg-teal-800"></div>
+          <div className="absolute top-0 -right-4 w-72 h-72 bg-accent-light rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob animation-delay-2000 dark:opacity-10 dark:bg-accent-dark"></div>
+          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob animation-delay-4000 dark:opacity-10 dark:bg-purple-900"></div>
+        </div>
 
         <Navbar activeSection={activeSection} />
-        <main className="relative z-10">
-          <section id="home" className="min-h-screen bg-opacity-50 bg-gray-100 dark:bg-opacity-50 dark:bg-gray-800">
+        <main className="relative z-10 pt-16">
+          <section id="home" className="min-h-screen">
             <Hero />
           </section>
-          <section id="about" className="min-h-screen bg-white dark:bg-gray-900">
+          <section id="about" className="min-h-screen">
             <About />
           </section>
-          <section id="skills" className="min-h-screen bg-opacity-50 bg-gray-100 dark:bg-opacity-50 dark:bg-gray-800">
+          <section id="skills" className="min-h-screen">
             <Skills />
           </section>
-          <section id="projects" className="min-h-screen bg-white dark:bg-gray-900">
+          <section id="projects" className="min-h-screen pt-10">
             <Projects />
           </section>
-          <section id="contact" className="min-h-screen bg-opacity-50 bg-gray-100 dark:bg-opacity-50 dark:bg-gray-800">
+          <section id="contact" className="min-h-screen">
             <Contact />
           </section>
         </main>
-        <div className="relative">
+        <div className="relative z-10 border-t border-gray-200 dark:border-gray-800">
           <Footer />
         </div>
+        <Chatbot />
       </div>
     </ThemeProvider>
   );

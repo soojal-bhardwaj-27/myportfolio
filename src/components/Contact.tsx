@@ -41,7 +41,7 @@ const Contact = () => {
 
           <div className="flex items-center space-x-4">
             <FaPhone {...iconProps} />
-            <p className="text-lg text-gray-700 dark:text-gray-300">9413457023</p>
+            <p className="text-lg text-gray-700 dark:text-gray-300">9306282549</p>
           </div>
 
           <div className="flex items-center space-x-4">
