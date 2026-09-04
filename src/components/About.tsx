@@ -2,7 +2,11 @@ import React from 'react';
 import Pill from './ui/Pill';
 import { motion } from 'framer-motion';
 
-const About: React.FC = () => {
+interface AboutProps {
+  showImage?: boolean;
+}
+
+const About: React.FC<AboutProps> = ({ showImage = false }) => {
   return (
     <section id="about" className="relative min-h-[90vh] bg-cream text-black py-24 px-6 md:px-12 overflow-hidden">
       {/* Background Typography */}
@@ -42,23 +46,37 @@ const About: React.FC = () => {
         >
           
           {/* Green BG Rectangle */}
-          <div className="absolute top-0 right-0 w-[90%] h-[400px] bg-dark-green -z-10"></div>
+          <div className="absolute top-0 right-0 w-[95%] h-[450px] lg:h-[550px] bg-dark-green -z-10"></div>
           
-          {/* Portrait Image */}
-          <div className="relative w-3/4 max-w-[300px] h-[350px] mt-8 mx-auto lg:ml-auto lg:mr-10 shadow-2xl">
-            <img src="/profile.png" alt="Soojal Bhardwaj" className="w-full h-full object-cover filter-retro hover:filter-none transition-all duration-500" />
-            
-            {/* Badges */}
-            <Pill className="absolute top-[80px] -left-[30px] z-20 text-xs sm:text-sm whitespace-nowrap shadow-xl transform -rotate-2">
-              AI Engineer
-            </Pill>
-            <Pill className="absolute bottom-[40px] -right-[20px] z-20 text-xs sm:text-sm whitespace-nowrap shadow-xl transform rotate-3">
-              Full-Stack Dev
-            </Pill>
+          {/* Portrait Image Placeholder (Image is rendered by HeroAboutTransition) */}
+          <div className="relative w-full max-w-[400px] aspect-[4/5] mt-12 mx-auto lg:ml-auto lg:mr-10">
+            {showImage && (
+              <motion.div
+                layoutId="profileImage"
+                className="absolute inset-0 shadow-2xl z-20"
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <img src="/profile.png" alt="Soojal Bhardwaj" className="w-full h-full object-cover filter-retro hover:filter-none transition-all duration-500" />
+                
+                {/* Badges */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                >
+                  <Pill className="absolute top-[80px] -left-[30px] z-20 text-xs sm:text-sm whitespace-nowrap shadow-xl transform -rotate-2">
+                    AI Engineer
+                  </Pill>
+                  <Pill className="absolute bottom-[60px] -right-[20px] z-20 text-xs sm:text-sm whitespace-nowrap shadow-xl transform rotate-3">
+                    Full-Stack Dev
+                  </Pill>
+                </motion.div>
+              </motion.div>
+            )}
           </div>
 
           {/* Contact Card */}
-          <div className="relative z-20 bg-black text-cream p-8 mt-12 w-[95%] md:w-[350px] shadow-2xl -ml-2 lg:-ml-12">
+          <div className="relative z-20 bg-black text-cream p-8 mt-16 w-[95%] md:w-[380px] shadow-2xl -ml-2 lg:-ml-12">
             <h3 className="font-display text-4xl mb-6">Contact</h3>
             <ul className="font-sans text-sm flex flex-col gap-5">
               <li className="flex items-center gap-4">
