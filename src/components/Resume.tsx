@@ -6,6 +6,13 @@ import { motion } from 'framer-motion';
 const Resume: React.FC = () => {
   return (
     <section id="resume" className="bg-dark-green text-cream py-24 px-6 md:px-12 border-t-[10px] border-orange">
+      <div className="max-w-6xl mx-auto mb-16 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+        <h2 className="font-display text-5xl md:text-7xl text-cream">My Resume</h2>
+        <a href="/Soojal_bhardwaj_resume.pdf" download target="_blank" className="bg-orange text-black px-8 py-4 font-bold uppercase tracking-wider text-sm flex items-center gap-3 hover:bg-cream hover:text-dark-green transition-colors">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download PDF
+        </a>
+      </div>
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
         
         {/* Left Column: Education & Experience */}

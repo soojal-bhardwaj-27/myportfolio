@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageSquare, X, Send, User, Bot, Loader2 } from 'lucide-react';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+
 
 interface Message {
   id: number;
@@ -11,7 +11,10 @@ interface Message {
 
 
 const SYSTEM_PROMPT = `You are the personal AI assistant for Soojal Bhardwaj's portfolio website. 
-You are friendly, professional, and knowledgeable about Soojal's experience.
+You MUST STRICTLY and ONLY talk about Soojal Bhardwaj, his projects, his skills, and his professional background. 
+UNDER NO CIRCUMSTANCES should you engage in casual conversation, answer general knowledge questions, write code, or discuss topics unrelated to Soojal.
+If the user says "hi" or asks a casual question, briefly greet them and immediately direct the conversation to Soojal's portfolio.
+If a user asks something unrelated, reply exactly with: "I am here only to discuss Soojal Bhardwaj's professional background and projects. What would you like to know about his work?"
 Key details to know about Soojal:
 - He is an AI & Full-Stack Engineer who builds intelligent business systems and real-world digital products.
 - Jarvis AI: A personal desktop assistant he built from scratch without external APIs using Python for voice interaction and system automation.
@@ -19,7 +22,7 @@ Key details to know about Soojal:
 - Admission CRM: Designed a full-stack CRM using Next.js and PostgreSQL to manage college admission workflows.
 - Homeopathy CRM: Developed a specialized B2B CRM for a homeopathy practice.
 - Skills: Python, LLMs, AI Agents, NLP, ReactJS, Next.js, TypeScript, NodeJS, PostgreSQL.
-If someone asks something unrelated to Soojal, politely pivot back to his skills or projects. Keep responses concise (under 3 sentences).`;
+Keep responses concise (under 3 sentences).`;
 
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,36 +57,47 @@ const Chatbot: React.FC = () => {
     setIsTyping(true);
 
     try {
-      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      const apiKey = import.meta.env.VITE_OPENROUTER_API_KEY;
       if (!apiKey) {
         throw new Error("API key is missing");
       }
 
-      const genAI = new GoogleGenerativeAI(apiKey);
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-      // Construct history (excluding the first hardcoded greeting if you want, or map it)
-      // Gemini's history expects user and model roles to alternate, but it's simpler to just send the conversation
       const history = messages.slice(1).map(msg => ({
-        role: msg.sender === 'user' ? 'user' : 'model',
-        parts: [{ text: msg.text }],
+        role: msg.sender === 'user' ? 'user' : 'assistant',
+        content: msg.text,
       }));
 
-      const chat = model.startChat({
-        systemInstruction: SYSTEM_PROMPT,
-        history: history,
+      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${apiKey}`,
+          "HTTP-Referer": window.location.href,
+          "X-Title": "Soojal Portfolio",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          "model": "liquid/lfm-2.5-2.6b:free",
+          "messages": [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            ...history,
+            {"role": "user", "content": text}
+          ]
+        })
       });
 
-      const result = await chat.sendMessage(text);
-      const response = await result.response;
-      const botReply = response.text();
+      if (!response.ok) {
+        throw new Error("Failed to fetch response from OpenRouter");
+      }
+      
+      const data = await response.json();
+      const botReply = data.choices[0].message.content;
 
       setMessages(prev => [...prev, { id: Date.now(), text: botReply, sender: 'bot' }]);
     } catch (error) {
       console.error(error);
-      const errorMsg = import.meta.env.VITE_GEMINI_API_KEY 
+      const errorMsg = import.meta.env.VITE_OPENROUTER_API_KEY 
         ? "Sorry, I'm having trouble connecting to my brain right now. Please try again." 
-        : "Oops! My API key isn't set up yet. Please add VITE_GEMINI_API_KEY to your .env file.";
+        : "Oops! My API key isn't set up yet. Please add VITE_OPENROUTER_API_KEY to your .env file.";
       setMessages(prev => [...prev, { id: Date.now(), text: errorMsg, sender: 'bot' }]);
     } finally {
       setIsTyping(false);

@@ -51,10 +51,14 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Social Links */}
-              <div className="flex flex-col gap-2 font-sans text-sm mt-auto z-20 lg:absolute lg:bottom-10 lg:right-10 text-cream">
+              <div className="flex flex-col gap-2 font-sans text-sm mt-auto z-20 lg:absolute lg:bottom-10 lg:right-10 text-cream items-start lg:items-end lg:text-right">
                 <a href="https://github.com/soojal-bhardwaj-27" target="_blank" className="hover:text-orange transition-colors">GH: /soojal-bhardwaj</a>
                 <a href="#" className="hover:text-orange transition-colors">IG: @soojal.b</a>
-                Based in India.<br/>Currently open for freelance projects and full-time roles.
+                <p className="mt-2">Based in India.<br/>Currently open for freelance projects and full-time roles.</p>
+                <a href="/Soojal_bhardwaj_resume.pdf" download className="mt-4 px-6 py-2 border-[2px] border-orange text-orange hover:bg-orange hover:text-black transition-all font-bold uppercase tracking-wider text-xs inline-flex items-center gap-2">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  Resume
+                </a>
               </div>
             </div>
           </div>

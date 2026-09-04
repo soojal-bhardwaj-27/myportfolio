@@ -10,7 +10,10 @@ const Header: React.FC = () => {
       </div>
       <nav className="hidden md:flex items-center gap-8 font-sans text-sm">
         <a href="#about" className="hover:opacity-60 transition-opacity">About me</a>
-        <a href="#resume" className="hover:opacity-60 transition-opacity">Resume</a>
+        <a href="/Soojal_bhardwaj_resume.pdf" target="_blank" download className="hover:opacity-60 transition-opacity flex items-center gap-1">
+          Resume
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        </a>
         <a href="#work" className="hover:opacity-60 transition-opacity">Work</a>
         <a href="#contact" className="bg-orange text-black px-5 py-2 rounded-full font-medium hover:-translate-y-0.5 transition-transform">Get in touch</a>
       </nav>
